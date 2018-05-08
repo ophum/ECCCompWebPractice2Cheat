@@ -38,7 +38,6 @@ document.getElementById("run").addEventListener("click", function(){
     [/垂直位置：中央揃え/g, "vertical-align:middle"],
     [/上揃え/g, "top"],
     [/下揃え/g, "bottom"],
-    [/文字色：/g, "color"],
     [/中央揃え/g, "center"],
     [/左揃え/g, "left"],
     [/右揃え/g, "right"],
@@ -49,11 +48,17 @@ document.getElementById("run").addEventListener("click", function(){
     [/｝/g, "}"],
     [/左マージン：/g, "margin-left: "],
     [/右マージン：/g, "margin-right: "],
+    [/上マージン：/g, "margin-top: "],
+    [/下マージン：/g, "margin-bottom: "],
     [/マージン：/g, "margin: "],
 
     [/文字色：/g, "color: "],
     [/背景色：/g, "background-color: "],
 
+    [/背景画像：/g, "background-image: "],
+    [/背景画像の並べ方：/g, "background-repeat: "],
+    [/繰り返しなし/g, "no-repeat"],
+    [/背景画像の位置：/g, "background-position: "],
     [/幅：/g, "width: "],
     [/高さ：/g, "height: "],
 
@@ -61,6 +66,8 @@ document.getElementById("run").addEventListener("click", function(){
     [/フォントの種類：/g, "font-family: "],
     [/フォントウェイト：/g, "font-weight: "],
     [/通常体/g, "normal"],
+    [/字飾り：/g, "text-decoration: "],
+    [/なし/g, "none"],
 
     [/左ボーダー：/g, "border-left: "],
     [/右ボーダー：/g, "border-right: "],
@@ -90,6 +97,7 @@ document.getElementById("run").addEventListener("click", function(){
     [/インデント：/g, "text-indent: "],
     [/行間：/g, "line-height: "],
 
+    [/等幅/g, "monospace"]
   ];
 
   for(let i = 0; i < reg.length; i++){
