@@ -1,0 +1,122 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cheat</title>
+</head>
+<style>
+
+#run{
+  width: 600px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#res {
+  width: 595px;
+  padding: 2px;
+  border: 1px solid black;
+}
+
+</style>
+<body>
+
+<textarea id="code" style="width: 600px; height: 480px; margin: 0 auto 0 auto;">
+</textarea><br>
+<input id="run" type="button" value="run">
+<br>
+<div id="res">
+</div>
+
+<script>
+
+document.getElementById("run").addEventListener("click", function(){
+  let code = document.getElementById("code").value;
+  const reg = [
+    [/要素/g, ""],
+    [/行揃え：/g, "text-align:"],
+    [/垂直位置：/g, "vertical-align:"],
+    [/垂直位置：中央揃え/g, "vertical-align:middle"],
+    [/上揃え/g, "top"],
+    [/下揃え/g, "bottom"],
+    [/文字色：/g, "color"],
+    [/中央揃え/g, "center"],
+    [/左揃え/g, "left"],
+    [/右揃え/g, "right"],
+    [/ピクセル/g, "px"],
+    [/文字分/g, "em"],
+    [/；/g, ";"],
+    [/｛/g, "{"],
+    [/｝/g, "}"],
+    [/左マージン：/g, "margin-left: "],
+    [/右マージン：/g, "margin-right: "],
+
+    [/文字色：/g, "color: "],
+    [/背景色：/g, "background-color: "],
+
+    [/幅：/g, "width: "],
+    [/高さ：/g, "height: "],
+
+    [/フォントサイズ：/g, "font-size: "],
+    [/フォントの種類：/g, "font-family: "],
+    [/フォントウェイト：/g, "font-weight: "],
+    [/通常体/g, "normal"],
+
+    [/左ボーダー：/g, "border-left: "],
+    [/右ボーダー：/g, "border-right: "],
+    [/上ボーダー：/g, "border-top: "],
+    [/下ボーダー：/g, "border-bottom: "],
+    [/ボーダー：/g, "border: "],
+
+    [/実線/g, "solid"],
+    [/破線/g, "dashed"],
+
+
+    [/左パディング：/g, "padding-left: "],
+    [/右パディング：/g, "padding-right: "],
+    [/パディング：/g, "padding: "],
+    [/配置：/g, "position: "],
+    [/相対/g, "relative"],
+    [/絶対/g, "absolute"],
+    [/上からの距離/g, "top"],
+    [/左からの距離/g, "left"],
+    [/右からの距離/g, "right"],
+    [/下からの距離/g, "bottom"],
+    [/Zインデックス：/g, "z-index: "],
+    [/内容があふれる場合の処理：/g, "overflow: "],
+
+
+  ];
+
+  for(let i = 0; i < reg.length; i++){
+    code = code.replace(reg[i][0], reg[i][1]);
+  }
+  let codes = code.split('\n');
+
+  for(let i = 0; i < codes.length; i++){
+    let ch = codes[i];
+    if(ch.match(/^[^a-zA-Z\.#{}()\[\]\"\"\'\' ]/)){
+      codes[i] = codes[i].slice(1).trim();
+    }
+    if(ch.match(/ＩＤ/)){
+      codes[i] = "#" + codes[i].replace(/ＩＤ/, "");
+    }
+
+    if(ch.match(/クラス/)){
+      codes[i] = "." + codes[i].replace(/クラス/, "");
+    }
+  }
+
+  document.getElementById("res").innerHTML = "<pre><code>";
+  for(let i = 0; i < codes.length; i++){
+    codes[i] = codes[i].trim();
+    if(codes[i].indexOf("{") == -1 && codes[i].indexOf("}") == -1){
+      document.getElementById("res").innerHTML += "&nbsp;&nbsp;";
+    }
+    document.getElementById("res").innerHTML += codes[i] + "<br>";
+  }
+  document.getElementById("res").innerHTML += "</code></pre>";
+});
+
+</script>
+</body>
+</html>
