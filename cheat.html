@@ -118,6 +118,7 @@ document.getElementById("run").addEventListener("click", function(){
 
     [/生成するボックスの種類：/g, "display: "],
     [/インライン/g, "inline"],
+    [/ブロック/g, "block"],
 
     [/リストの形式：/g, "list-style-type:"],
     [/頭に０を付けた１０進数/g, "decimal-leading-zero"],
@@ -147,6 +148,7 @@ document.getElementById("run").addEventListener("click", function(){
     [/８/g, "8"],
     [/９/g, "9"],
 
+    [/と/g, ","]
   ];
 
   for(let i = 0; i < reg.length; i++){
@@ -156,15 +158,44 @@ document.getElementById("run").addEventListener("click", function(){
 
   for(let i = 0; i < codes.length; i++){
     let ch = codes[i];
+    console.log(ch);
     if(ch.match(/^[^a-zA-Z\.#{}()\[\]\"\"\'\' ]/)){
       codes[i] = codes[i].slice(1).trim();
     }
-    if(ch.match(/ＩＤ/)){
-      codes[i] = "#" + codes[i].replace(/ＩＤ/, "");
-    }
+    ch = codes[i];
+    if(ch.match(/の中に含まれる/)){
+      let chs = ch.split(",");
 
-    if(ch.match(/クラス/)){
-      codes[i] = "." + codes[i].replace(/クラス/, "");
+      codes[i] = "";
+      for(let j = 0; j < chs.length; j++){
+        let left = chs[j].split(/の中に含まれる/)[0];
+        let right = chs[j].split(/の中に含まれる/)[1];
+        if(left === undefined || right === undefined) break;
+        console.log(j + " " + left + ":" + right);
+        if(left.match(/ＩＤ/)){
+          left = "#" + left.replace(/ＩＤ/, "").trim();
+        }else if(left.match(/クラス/)){
+          left = "." + left.replace(/クラス/, "").trim();
+        }
+
+        if(right.match(/ＩＤ/)){
+          right = "#" + right.replace(/ＩＤ/, "").trim();
+        }else if(right.match(/クラス/)){
+          right = "." + right.replace(/クラス/, "").trim();
+        }
+        codes[i] += left;
+        if(right[0] != '#' && right[0] != '.'){
+          codes[i] += " ";
+        }
+        if(!right.indexOf("{")) codes[i] += right + ",";
+        else codes[i] += right;
+      }
+    }else {
+      if(ch.match(/ＩＤ/)){
+        codes[i] = "#" + ch.replace(/ＩＤ/, "").trim();
+      }else if(ch.match(/クラス/)){
+        codes[i] = "." + ch.replace(/クラス/, "").trim();
+      }
     }
   }
 
