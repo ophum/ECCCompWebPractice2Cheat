@@ -4,26 +4,38 @@
   <title>cheat</title>
 </head>
 <style>
+#codeArea{
+  overflow: hidden;
+  float: left;
+}
+
+#code {
+  width: 300px;
+  height: 480px;
+}
 
 #run{
-  width: 600px;
+  width: auto;
   font-weight: bold;
   text-align: center;
 }
 
 #res {
-  width: 595px;
+  width: 300px;
   padding: 2px;
   border: 1px solid black;
+  float: left;
 }
 
 </style>
 <body>
 
-<textarea id="code" style="width: 600px; height: 480px; margin: 0 auto 0 auto;">
-</textarea><br>
+<div id="codeArea">
+<textarea id="code"></textarea><br>
 <input id="run" type="button" value="run">
-<br>
+</div>
+
+
 <div id="res">
 </div>
 
@@ -66,6 +78,8 @@ document.getElementById("run").addEventListener("click", function(){
     [/フォントの種類：/g, "font-family: "],
     [/フォントウェイト：/g, "font-weight: "],
     [/通常体/g, "normal"],
+    [/太字/g, "bold"],
+
     [/字飾り：/g, "text-decoration: "],
     [/なし/g, "none"],
 
@@ -99,6 +113,16 @@ document.getElementById("run").addEventListener("click", function(){
     [/行間：/g, "line-height: "],
 
     [/等幅/g, "monospace"],
+
+    [/生成するボックスの種類：/g, "display: "],
+    [/インライン/g, "inline"],
+
+    [/リストの形式：/g, "list-style-type:"],
+    [/頭に０を付けた１０進数/g, "decimal-leading-zero"],
+    [/なし/g, "none"],
+    [/円（白丸）/g, "circle"],
+    [/円（黒丸）/g, "disc"],
+    [/リスト項目の画像：/g, "list-style-image: "],
 
     [/　/g, " "],
 
