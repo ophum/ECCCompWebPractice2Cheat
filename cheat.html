@@ -73,11 +73,12 @@ document.getElementById("run").addEventListener("click", function(){
     [/右ボーダー：/g, "border-right: "],
     [/上ボーダー：/g, "border-top: "],
     [/下ボーダー：/g, "border-bottom: "],
+    [/ボーダーの表示形式：/g, "border-collapse: "],
     [/ボーダー：/g, "border: "],
-
+    [/結合/g, "collapse"],
+    [/分離/g, "separate"],
     [/実線/g, "solid"],
     [/破線/g, "dashed"],
-
 
     [/左パディング：/g, "padding-left: "],
     [/右パディング：/g, "padding-right: "],
@@ -97,7 +98,21 @@ document.getElementById("run").addEventListener("click", function(){
     [/インデント：/g, "text-indent: "],
     [/行間：/g, "line-height: "],
 
-    [/等幅/g, "monospace"]
+    [/等幅/g, "monospace"],
+
+    [/　/g, " "],
+
+    [/０/g, "0"],
+    [/１/g, "1"],
+    [/２/g, "2"],
+    [/３/g, "3"],
+    [/４/g, "4"],
+    [/５/g, "5"],
+    [/６/g, "6"],
+    [/７/g, "7"],
+    [/８/g, "8"],
+    [/９/g, "9"],
+
   ];
 
   for(let i = 0; i < reg.length; i++){
