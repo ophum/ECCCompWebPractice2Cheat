@@ -82,6 +82,8 @@ document.getElementById("run").addEventListener("click", function(){
 
     [/字飾り：/g, "text-decoration: "],
     [/なし/g, "none"],
+    [/下線/g, "underline"],
+    [/上線/g, "overline"],
 
     [/左ボーダー：/g, "border-left: "],
     [/右ボーダー：/g, "border-right: "],
@@ -124,7 +126,15 @@ document.getElementById("run").addEventListener("click", function(){
     [/円（黒丸）/g, "disc"],
     [/リスト項目の画像：/g, "list-style-image: "],
 
+    [/の未参照状態/g, ":link"],
+    [/の既参照状態/g, ":visited"],
+    [/のホバー状態/g, ":hover"],
+    [/のアクティブ状態/g, ":active"],
+
+
     [/　/g, " "],
+
+    [/％/g, "%"],
 
     [/０/g, "0"],
     [/１/g, "1"],
