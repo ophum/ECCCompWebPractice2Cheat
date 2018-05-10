@@ -52,8 +52,8 @@
 |破線| "dashed"|
 |左パディング：| "padding-left: "|
 |右パディング：| "padding-right: "|
-|パディング：| "padding: "h|
-|配置：| "position: "h|
+|パディング：| "padding: "|
+|配置：| "position: "|
 |相対| "relative""|
 |絶対| "absolute"|
 |上からの距離：| "top: "|
@@ -61,7 +61,7 @@
 |右からの距離：| "right: "|
 |下からの距離：| "bottom: "|
 |Zインデックス：| "z-index: "|
-|内容があふれる場合の処理：| "overflow: "||
+|内容があふれる場合の処理：| "overflow: "|
 |回り込み：左| "float: left"|
 |回り込み：右| "float: right"|
 |インデント：| "text-indent: "|
@@ -95,4 +95,4 @@
 |９| "9"|
 |と| ","|
 |のうちclass属性が| "."|
-|のうちid属性が| "#""|
+|のうちid属性が| "#"|
